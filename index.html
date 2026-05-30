@@ -241,7 +241,7 @@ Nuestro inicio ❤️
 onclick="abrirEvento(
 'Primeras flores 💐',
 'Las primeras flores para el amor de mi vida.',
-'fotos/flor1.jpg'
+'flor1.jpg'
 )">
 <strong>Primeras flores 💐</strong><br>
 Flores para el amor de mi vida
@@ -331,8 +331,17 @@ Tócame ❤️
 
 <section class="glass">
 <h2>🎵 Música</h2>
+
 <audio controls id="audio"></audio>
+
 <p id="song"></p>
+
+<div style="margin-top:15px;">
+    <button onclick="prevSong()">⏮</button>
+    <button onclick="nextSong()">⏭</button>
+</div>
+
+</section>
 </section>
 
 <div class="secret" onclick="alert('Encontraste mi corazón ❤️\nTe amo muchísimo.')">❤️</div>
@@ -370,18 +379,106 @@ setTimeout(escribir,35);
 }
 })();
 
-const razones=[
-
-"Porque haces mis días más felices ❤️",
-
-"Porque siempre pienso en ti ❤️",
-
-"Porque incluso a distancia me haces sentir acompañado ❤️",
-
+const razones = [
+"Porque aunque estés lejos, te siento cerca ❤️",
+"Porque siempre encuentro una razón para sonreír cuando hablo contigo ❤️",
+"Porque haces especiales mis días desde la distancia ❤️",
+"Porque eres lo primero que pienso al despertar ❤️",
+"Porque eres lo último que pienso antes de dormir ❤️",
+"Porque cada mensaje tuyo alegra mi día ❤️",
+"Porque tu voz tiene el poder de tranquilizarme ❤️",
+"Porque me haces sentir acompañado incluso cuando estoy solo ❤️",
+"Porque la distancia no ha cambiado lo que siento por ti ❤️",
+"Porque contigo aprendí que el amor no conoce kilómetros ❤️",
+"Porque siempre encuentras la manera de hacerme feliz ❤️",
+"Porque me escuchas cuando más lo necesito ❤️",
+"Porque puedo contarte cualquier cosa ❤️",
+"Porque confío plenamente en ti ❤️",
+"Porque me haces sentir importante ❤️",
+"Porque siempre tienes tiempo para mí ❤️",
+"Porque me entiendes como pocas personas ❤️",
+"Porque me haces sentir querido todos los días ❤️",
+"Porque nuestras conversaciones nunca me aburren ❤️",
+"Porque contigo el tiempo pasa volando ❤️",
+"Porque compartimos sueños juntos ❤️",
+"Porque me inspiras a ser mejor ❤️",
+"Porque tu forma de ser me enamora ❤️",
+"Porque eres auténtica ❤️",
+"Porque me haces reír incluso en mis peores días ❤️",
+"Porque siempre logras sacarme una sonrisa ❤️",
+"Porque me encanta escuchar tus historias ❤️",
+"Porque me haces sentir especial ❤️",
 "Porque eres mi persona favorita ❤️",
-
-"Porque contigo todo se siente mejor ❤️"
-
+"Porque me haces creer en el amor ❤️",
+"Porque siempre espero con emoción hablar contigo ❤️",
+"Porque cada notificación tuya me alegra ❤️",
+"Porque me gusta aprender cosas de ti ❤️",
+"Porque siempre encuentro paz cuando hablo contigo ❤️",
+"Porque me haces sentir comprendido ❤️",
+"Porque nunca me juzgas ❤️",
+"Porque me apoyas en todo momento ❤️",
+"Porque siempre sabes qué decir ❤️",
+"Porque me haces sentir afortunado ❤️",
+"Porque eres una persona increíble ❤️",
+"Porque admiro tu fortaleza ❤️",
+"Porque admiro tu forma de pensar ❤️",
+"Porque tienes un corazón hermoso ❤️",
+"Porque eres dulce conmigo ❤️",
+"Porque me haces sentir valorado ❤️",
+"Porque me encanta tu forma de ver la vida ❤️",
+"Porque contigo puedo ser yo mismo ❤️",
+"Porque nuestras pláticas significan mucho para mí ❤️",
+"Porque cada día me das una razón para quedarme ❤️",
+"Porque haces que la distancia sea más fácil ❤️",
+"Porque me encanta cómo me haces sentir ❤️",
+"Porque compartes mis alegrías ❤️",
+"Porque me apoyas en los momentos difíciles ❤️",
+"Porque siempre estás presente ❤️",
+"Porque haces que mi corazón se acelere ❤️",
+"Porque eres parte importante de mi vida ❤️",
+"Porque has cambiado mi vida para bien ❤️",
+"Porque haces que los días grises tengan color ❤️",
+"Porque me das tranquilidad ❤️",
+"Porque me haces sentir amado ❤️",
+"Porque me haces ilusión ❤️",
+"Porque me gusta imaginar nuestro futuro ❤️",
+"Porque compartimos momentos únicos ❤️",
+"Porque eres mi lugar favorito aunque estés lejos ❤️",
+"Porque haces que todo valga la pena ❤️",
+"Porque me motivas todos los días ❤️",
+"Porque nunca me siento solo cuando estoy contigo ❤️",
+"Porque siempre me sacas de mis preocupaciones ❤️",
+"Porque tu cariño es sincero ❤️",
+"Porque me encanta conocerte más cada día ❤️",
+"Porque eres alguien muy especial para mí ❤️",
+"Porque nuestras llamadas son de mis momentos favoritos ❤️",
+"Porque me encanta escuchar tu risa ❤️",
+"Porque me haces sentir afortunado de haberte conocido ❤️",
+"Porque me das confianza ❤️",
+"Porque siempre puedo contar contigo ❤️",
+"Porque eres una de las mejores cosas que me han pasado ❤️",
+"Porque haces que mi corazón esté tranquilo ❤️",
+"Porque me haces sentir en casa ❤️",
+"Porque compartimos una conexión única ❤️",
+"Porque siempre me das motivos para sonreír ❤️",
+"Porque haces que espere con emoción cada día ❤️",
+"Porque me gusta imaginar el día en que nos veamos ❤️",
+"Porque me has enseñado el valor de la paciencia ❤️",
+"Porque me has demostrado que el amor puede superar la distancia ❤️",
+"Porque cada día contigo es especial ❤️",
+"Porque siempre logras alegrar mi corazón ❤️",
+"Porque eres mi pensamiento favorito ❤️",
+"Porque haces que todo sea más bonito ❤️",
+"Porque me encanta compartir mi tiempo contigo ❤️",
+"Porque eres una persona maravillosa ❤️",
+"Porque haces que crea en nosotros ❤️",
+"Porque me haces sentir completo ❤️",
+"Porque eres mi felicidad diaria ❤️",
+"Porque contigo todo se siente más fácil ❤️",
+"Porque cada día te quiero un poco más ❤️",
+"Porque eres tú ❤️",
+"Porque te elegiría una y mil veces ❤️",
+"Porque aun sin habernos visto, ocupas un lugar enorme en mi corazón ❤️"
 ];
 
 function mostrarRazon(){
@@ -394,9 +491,55 @@ document.getElementById("razonTexto")
 
 }
 
-const playlist=["es_verdad.mp3","sone.mp3"];
-document.getElementById('audio').src=playlist[0];
-document.getElementById('song').textContent=playlist[0];
+const playlist = [
+"music/es_verdad.mp3",
+"music/sone.mp3"
+];
+
+let currentSong = 0;
+
+const audio = document.getElementById("audio");
+
+function loadSong(){
+
+    audio.src = playlist[currentSong];
+
+    document.getElementById("song").innerText =
+    playlist[currentSong]
+    .replace("music/","")
+    .replace(".mp3","");
+
+}
+
+function nextSong(){
+
+    currentSong++;
+
+    if(currentSong >= playlist.length){
+        currentSong = 0;
+    }
+
+    loadSong();
+    audio.play();
+
+}
+
+function prevSong(){
+
+    currentSong--;
+
+    if(currentSong < 0){
+        currentSong = playlist.length - 1;
+    }
+
+    loadSong();
+    audio.play();
+
+}
+
+audio.addEventListener("ended", nextSong);
+
+loadSong();
 
 const hearts=document.getElementById('hearts');
 const icons=['❤️','💖','💕','💗','💞'];
