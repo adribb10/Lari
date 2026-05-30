@@ -2,265 +2,475 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-<title>Para Laritza ❤️</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laritza ❤️ Adrián</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--ease-ios:cubic-bezier(0.22,1,0.36,1)}
-body{font-family:'Poppins',sans-serif;background:#0f0f1a;color:white;overflow:hidden}
-
-body::before{
- content:"";position:fixed;width:200%;height:200%;
- background: radial-gradient(circle at 30% 20%, #ff4b91, transparent 40%), radial-gradient(circle at 80% 70%, #7b61ff, transparent 40%);
- filter: blur(120px);animation: float 12s var(--ease-ios) infinite;
+body{
+font-family:Poppins,sans-serif;
+background:linear-gradient(135deg,#ff8fbc,#f7c6dc,#e7d2ff);
+color:#512d46;
+overflow-x:hidden;
 }
-@keyframes float{0%{transform:translate(0,0)}50%{transform:translate(-10%,-10%)}100%{transform:translate(0,0)}}
 
-header{text-align:center;padding:15px;font-size:1.4rem}
-.container{position:relative;width:100vw;height:calc(100vh - 100px);overflow:hidden}
-.section{position:absolute;width:100%;height:100%;padding:15px;text-align:center;top:0;left:100%;opacity:0;transform:scale(0.96);transition:.6s var(--ease-ios)}
-.section.active{left:0;opacity:1;transform:scale(1)}
-.section.exit{left:-100%;opacity:0}
+#welcome{
+position:fixed;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#ff8fbc,#f7c6dc,#e7d2ff);
+z-index:9999;
+}
 
-.card{margin:10px auto;width:90%;padding:15px;border-radius:20px;background:rgba(255,255,255,0.08);backdrop-filter:blur(20px);cursor:pointer;transition:.3s}
-.card:hover{transform:scale(1.05)}
+#welcome button{
+padding:14px 28px;
+border:none;
+border-radius:999px;
+font-size:1rem;
+cursor:pointer;
+}
 
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;text-align:center;padding:20px}
-.modal-content{background:rgba(255,255,255,0.1);padding:25px;border-radius:20px;font-size:1.1rem;animation:zoom .4s var(--ease-ios)}
-@keyframes zoom{from{transform:scale(0.7);opacity:0}to{transform:scale(1);opacity:1}}
+.hearts{
+position:fixed;
+inset:0;
+pointer-events:none;
+overflow:hidden;
+z-index:-1;
+}
 
-.paper{background:#fffaf0;color:#333;padding:20px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.3);font-family:serif;line-height:1.5}
+.heart{
+position:absolute;
+top:-50px;
+animation:fall linear infinite;
+}
 
-.timeline{margin-top:20px;display:flex;flex-direction:column;gap:20px}
-.timeline-item{background:rgba(255,255,255,0.08);padding:15px;border-radius:15px;cursor:pointer;transition:.3s}
-.timeline-item:hover{transform:scale(1.03)}
-.timeline-item strong{color:#ff7eb3}
+@keyframes fall{
+to{
+transform:translateY(120vh);
+}
+}
 
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:10px}
-.grid img{width:100%;height:100px;object-fit:cover;border-radius:10px}
+.glass{
+background:rgba(255,255,255,.35);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.4);
+border-radius:25px;
+padding:20px;
+margin:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
 
-.tabbar{position:fixed;bottom:0;width:100%;display:flex;justify-content:space-around;padding:8px;background:rgba(20,20,40,0.7);backdrop-filter:blur(25px);z-index:999}
-.tabbar button{background:none;border:none;color:white;font-size:0.7rem}
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
 
-.player{margin-top:20px;padding:15px;border-radius:20px;background:rgba(255,255,255,0.08);backdrop-filter:blur(20px)}
-.progress{width:100%;height:5px;background:rgba(255,255,255,0.2);border-radius:5px;margin:10px 0}
-.progress div{height:100%;width:0%;background:#ff4b91}
-.controls{display:flex;justify-content:center;gap:15px}
+h1{font-size:2.3rem}
 
-.daily{margin-top:15px;font-size:0.95rem;opacity:0.8}
+.progress{
+height:18px;
+background:rgba(255,255,255,.4);
+border-radius:999px;
+overflow:hidden;
+margin-top:10px;
+}
 
+.fill{
+height:100%;
+background:linear-gradient(90deg,#ff4f9d,#ff85bf);
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:15px;
+}
+
+.photo{
+background:white;
+padding:10px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+cursor:pointer;
+}
+
+.photo img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:6px;
+}
+
+.photo p{
+text-align:center;
+margin-top:8px;
+}
+
+.timeline-item,.msg{
+background:rgba(255,255,255,.4);
+padding:15px;
+border-radius:15px;
+margin-top:10px;
+}
+
+#audio{
+width:100%;
+}
+
+.secret{
+position:fixed;
+bottom:15px;
+right:15px;
+cursor:pointer;
+font-size:22px;
+}
+
+.dark{
+background:linear-gradient(135deg,#241326,#40203f,#1d1b35);
+color:#ffd7ea;
+}
+
+.dark .glass,
+.dark .timeline-item,
+.dark .msg{
+background:rgba(255,255,255,.08);
+color:#fff;
+}
+.timeline-modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.8);
+justify-content:center;
+align-items:center;
+z-index:9999;
+padding:20px;
+}
+
+.timeline-modal-content{
+background:white;
+color:#512d46;
+padding:20px;
+border-radius:20px;
+max-width:450px;
+width:100%;
+text-align:center;
+}
+
+.timeline-modal-content img{
+width:100%;
+border-radius:15px;
+margin-bottom:15px;
+}
+
+.close-modal{
+font-size:30px;
+cursor:pointer;
+float:right;
+}
 </style>
 </head>
 <body>
 
-<header>Laritza ❤️</header>
-
-<div class="container" id="container">
-
-<div id="inicio" class="section active">
-<h2>Hola mi amor ❤️</h2>
-<p id="mensajeDia"></p>
-<div id="contador"></div>
-<p class="daily" id="mensajeUnico"></p>
-<button class="card" onclick="mensajeEspecial()">❤️ Tócame</button>
+<div id="welcome">
+<h1>❤️ Bienvenida mi amor ❤️</h1>
+<p>Cada día contigo es mi favorito</p><br>
+<button onclick="entrar()">Entrar 💌</button>
 </div>
 
-<div id="mensajes" class="section">
-<h2>Para ti 💌</h2>
-<div id="listaMensajes"></div>
+<div class="hearts" id="hearts"></div>
+
+<div class="hero">
+<div class="glass">
+<h1>Laritza ❤️ Adrián</h1>
+<p>Mi lugar favorito eres tú 🌸</p>
+<br>
+<h2 id="contador"></h2>
+
+<div class="progress">
+<div class="fill" id="amor"></div>
 </div>
 
-<div id="fotos" class="section">
-<h2>Nosotros ❤️</h2>
-
-<div class="grid" id="galeria">
-    
-</div>
-</div>
-
-<div id="timeline" class="section">
-<h2>Nuestra historia ❤️</h2>
-<div class="timeline" id="timeline"></div>
-</div>
-
-<div id="carta" class="section">
-<h2>Carta 💌</h2>
-<div class="paper">
-Laritza, desde el 13 de abril mi vida cambió completamente.<br><br>
-No importa la distancia, siempre estás en mi mente.<br>
-Eres mi paz, mi alegría y mi lugar favorito.<br><br>
-Te amo muchísimo ❤️
+<p>Amorómetro ❤️</p>
+<br>
+<button onclick="toggleDark()">🌙 Modo</button>
 </div>
 </div>
 
-<div id="musica" class="section">
-<h2>Nuestras canciones 🎶</h2>
-<audio id="audio"></audio>
-<div class="player">
-<div id="songTitle"></div>
-<div class="progress"><div id="progressBar"></div></div>
-<div class="controls">
-<button onclick="prevSong()">⏮</button>
-<button onclick="togglePlay()">⏯</button>
-<button onclick="nextSong()">⏭</button>
-</div>
-</div>
-</div>
+<section class="glass">
+<h2>💌 Mensajes</h2>
+<div class="msg">No importa la distancia, siempre estás en mi mente ❤️</div>
+<div class="msg">Gracias por existir 🌸</div>
+<div class="msg">Te elegiría una y mil veces ✨</div>
+</section>
+
+<section class="glass">
+<h2>📸 Álbum Polaroid</h2>
+<div class="grid">
+<div class="photo"><img src="https://via.placeholder.com/300x300"><p>foto1.jpg</p></div>
+<div class="photo"><img src="https://via.placeholder.com/300x300"><p>foto2.jpg</p></div>
 
 </div>
+</section>
 
-<div class="tabbar">
-<button onclick="showSection('inicio')">Inicio</button>
-<button onclick="showSection('mensajes')">💌</button>
-<button onclick="showSection('fotos')">📸</button>
-<button onclick="showSection('timeline')">⏳</button>
-<button onclick="showSection('musica')">🎵</button>
+<section class="glass">
+<h2>⏳ Nuestra historia</h2>
+
+<div class="timeline-item"
+onclick="abrirEvento(
+'Nuestro inicio ❤️',
+'El día que comenzó nuestra historia.',
+'fotos/inicio.jpg'
+)">
+<strong>13 Abril 2026</strong><br>
+Nuestro inicio ❤️
 </div>
 
-<div class="modal" id="modal" onclick="cerrarModal()">
-<div class="modal-content" id="modalText"></div>
+<div class="timeline-item"
+onclick="abrirEvento(
+'Primeras flores 💐',
+'Las primeras flores para el amor de mi vida.',
+'fotos/flor1.jpg'
+)">
+<strong>Primeras flores 💐</strong><br>
+Flores para el amor de mi vida
 </div>
+
+<div class="timeline-item"
+onclick="abrirEvento(
+'Primer mes 💐',
+'Más flores para el amor de mi vida.',
+'flor3.jpg'
+)">
+<strong>Primer mes juntos  💐</strong><br>
+Flores para el amor de mi vida
+</div>
+
+<div class="timeline-item"
+onclick="abrirEvento(
+'Flores para mí?',
+'Flores que me mando el amor de mi vida.',
+'flor2.jpg'
+)">
+<strong>Primer mes 💐</strong><br>
+Mi bebé me mando flores!
+</div>
+
+<div class="timeline-item"
+onclick="abrirEvento(
+'Cumpleaños 🎂',
+'Un día muy especial para mí.',
+'pumpe.jpg'
+)">
+<strong>Cumpleaños 🎂</strong><br>
+Gracias a mi princesa!🥹
+</div>
+
+</section>
+
+<section class="glass">
+<h2>💖 Carta</h2>
+<p id="carta"></p>
+</section>
+
+<section class="glass">
+
+<h2>💌 Cartas especiales</h2>
+
+<div class="msg" onclick="abrirCarta(1)">
+💌 Carta #1
+</div>
+
+<div class="msg" onclick="abrirCarta(2)">
+💌 Carta #2
+</div>
+
+<p id="cartaEspecial"></p>
+
+</section>
+
+<section class="glass">
+<h2>❤️ Razones por las que te amo</h2>
+
+<div class="msg" onclick="mostrarRazon()">
+Tócame ❤️
+</div>
+
+<p id="razonTexto"></p>
+
+</section>
+
+<section class="glass">
+
+<h2>✨ Cosas que quiero hacer contigo</h2>
+
+<p>☐ Ver una película juntos</p>
+
+<p>☐ Tomarnos muchas fotos</p>
+
+<p>☐ Darte un abrazo enorme</p>
+
+<p>☐ Ir por un café contigo</p>
+
+<p>☐ Verte sonreír</p>
+
+<p>☐ Besarte mucho mucho</p>
+
+</section>
+
+<section class="glass">
+<h2>🎵 Música</h2>
+<audio controls id="audio"></audio>
+<p id="song"></p>
+</section>
+
+<div class="secret" onclick="alert('Encontraste mi corazón ❤️\nTe amo muchísimo.')">❤️</div>
 
 <script>
-let sections=['inicio','mensajes','fotos','timeline','carta','musica'];
-let currentIndex=0;
-
-function showSection(id){
- const newIndex=sections.indexOf(id);
- if(newIndex===currentIndex) return;
- const current=document.getElementById(sections[currentIndex]);
- const next=document.getElementById(id);
- current.classList.remove('active');
- current.classList.add('exit');
- next.classList.add('active');
- setTimeout(()=>current.classList.remove('exit'),600);
- currentIndex=newIndex;
+function entrar(){
+document.getElementById('welcome').style.display='none';
 }
 
-/* MENSAJES */
-const mensajes=[
-"Laritza, desde el 13 de abril mi vida cambió completamente.No importa la distancia, siempre estás en mi mente.Eres mi paz, mi alegría y mi lugar favorito.Te amo muchísimo ❤️",
-"No sabes la tranquilidad que me da saber que estás en mi vida… porque incluso en los días difíciles, pensar en ti me hace sentir que todo va a estar bien.❤️",
-"Aunque no pueda abrazarte ahora, hay algo en mi que te siente cerca todo el tiempo… como si de alguna forma nunca estuviéramos separados"
-];
-const lista=document.getElementById('listaMensajes');
-mensajes.forEach(m=>{
- const div=document.createElement('div');
- div.className='card';
- div.innerText=m;
- div.onclick=()=>abrirModal(m);
- lista.appendChild(div);
-});
-
-function abrirModal(texto, imagen=null){
- let contenido = `<p>${texto}</p>`;
- if(imagen){contenido = `<img src="${imagen}" style="width:100%;border-radius:10px;margin-bottom:10px">`+contenido}
- document.getElementById('modalText').innerHTML=contenido;
- document.getElementById('modal').style.display='flex';
-}
-function cerrarModal(){document.getElementById('modal').style.display='none'}
-
-/* MENSAJE DIARIO */
-const mensajesUnicos=[
-"Hoy también te elijo ❤️",
-"Si estás aquí, es porque te estoy pensando",
-"Eres mi pensamiento favorito del día",
-"Laritza, siempre tú"
-];
-document.getElementById('mensajeUnico').innerText=mensajesUnicos[new Date().getDate()%mensajesUnicos.length];
-
-function mensajeEspecial(){
- abrirModal("Si tocaste esto… es porque también me estás pensando ❤️");
-}
-function mensajeFotosDinamico(){
- const inicio=new Date('2026-04-13');
- const hoy=new Date();
- const dias=Math.floor((hoy - inicio)/86400000);
-
- let mensaje="📸 Aquí comenzarán nuestros recuerdos... ❤️";
-
- if(dias>=3 && dias<10){
-  mensaje="📸 Ya quiero nuestra primera foto juntos... ❤️";
- }
- else if(dias>=10 && dias<30){
-  mensaje="📸 Este espacio ya necesita una historia nuestra 😏❤️";
- }
- else if(dias>=30){
-  mensaje="📸 Ya deberíamos tener recuerdos aquí... pero pronto ❤️";
- }
-
- const el=document.getElementById('emptyMessage');
- if(el) el.innerText=mensaje;
-}
-
-mensajeFotosDinamico();
-/* TIMELINE */
-const eventos=[
- {fecha:'13 Abril 2026',texto:'Nuestro inicio ❤️'},
- {fecha:'Primeras flores 💐',texto:'El día que te di tus primeras flores… la distancia nunca será impedimento ❤️',imagen:'flor1.jpg'},
- {fecha:'¿Yo? 💐',texto:'Son para mí? ❤️',imagen:'flor2.jpg'},
- {fecha:'1 MES!!',texto:'Flores para el amor de mi vida ❤️',imagen:'flor3.jpg'},
- {fecha:'Cumple 🎂',texto:'Ahhhhhhhhhhhhhhhhh!! ❤️❤️❤️',imagen:'pumpe.jpg'}
-];
-
-const tl=document.getElementById('timeline');
-eventos.forEach(e=>{
- const item=document.createElement('div');
- item.className='timeline-item';
- item.innerHTML=`<strong>${e.fecha}</strong><br>${e.texto}`;
- item.onclick=()=>abrirModal(e.texto,e.imagen);
- tl.appendChild(item);
-});
-
-/* MUSICA */
-const playlist=['es_verdad.mp3','sone.mp3'];
-let currentSong=0;let isPlaying=false;
-function loadSong(){
- document.getElementById('audio').src=playlist[currentSong];
- document.getElementById('songTitle').innerText='Canción '+(currentSong+1);
-}
-function togglePlay(){
- const audio=document.getElementById('audio');
- if(!isPlaying){audio.play();isPlaying=true}else{audio.pause();isPlaying=false}
-}
-function nextSong(){
- currentSong=(currentSong+1)%playlist.length;
- loadSong();
-
- if(isPlaying){
-  document.getElementById('audio').play();
- }
-}
-
-function prevSong(){
- currentSong=(currentSong-1+playlist.length)%playlist.length;
- loadSong();
-
- if(isPlaying){
-  document.getElementById('audio').play();
- }
-}
-function prevSong(){currentSong=(currentSong-1+playlist.length)%playlist.length;loadSong();togglePlay()}
-
-setInterval(()=>{
- const audio=document.getElementById('audio');
- if(audio.duration){
-  document.getElementById('progressBar').style.width=(audio.currentTime/audio.duration)*100+'%';
- }
-},500);
-
-/* CONTADOR */
 const inicio=new Date('2026-04-13');
-setInterval(()=>{
- const d=new Date()-inicio;
- const dias=Math.floor(d/86400000);
- document.getElementById('contador').innerText=`${dias} días juntos ❤️`;
-},1000);
 
-loadSong();
+function actualizar(){
+const ahora=new Date();
+const d=ahora-inicio;
+
+const dias=Math.floor(d/86400000);
+const horas=Math.floor(d/3600000)%24;
+const minutos=Math.floor(d/60000)%60;
+const segundos=Math.floor(d/1000)%60;
+
+document.getElementById('contador').innerHTML=
+`${dias} días<br>${horas} horas ${minutos} min ${segundos} seg ❤️`;
+
+document.getElementById('amor').style.width=Math.min(dias*2,100)+'%';
+}
+setInterval(actualizar,1000);
+actualizar();
+
+const texto="Laritza, gracias por estar en mi vida. Aunque exista distancia, siempre encuentro una razón para sonreír cuando pienso en ti. Te amo muchísimo ❤️";
+let i=0;
+(function escribir(){
+if(i<texto.length){
+document.getElementById('carta').innerHTML+=texto[i++];
+setTimeout(escribir,35);
+}
+})();
+
+const razones=[
+
+"Porque haces mis días más felices ❤️",
+
+"Porque siempre pienso en ti ❤️",
+
+"Porque incluso a distancia me haces sentir acompañado ❤️",
+
+"Porque eres mi persona favorita ❤️",
+
+"Porque contigo todo se siente mejor ❤️"
+
+];
+
+function mostrarRazon(){
+
+const random=
+Math.floor(Math.random()*razones.length);
+
+document.getElementById("razonTexto")
+.innerText=razones[random];
+
+}
+
+const playlist=["es_verdad.mp3","sone.mp3"];
+document.getElementById('audio').src=playlist[0];
+document.getElementById('song').textContent=playlist[0];
+
+const hearts=document.getElementById('hearts');
+const icons=['❤️','💖','💕','💗','💞'];
+
+for(let i=0;i<40;i++){
+let h=document.createElement('div');
+h.className='heart';
+h.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+h.style.left=Math.random()*100+'%';
+h.style.animationDuration=(5+Math.random()*10)+'s';
+h.style.fontSize=(15+Math.random()*25)+'px';
+hearts.appendChild(h);
+}
+
+function abrirEvento(titulo,texto,imagen){
+
+document.getElementById("timelineTitulo").innerText=titulo;
+document.getElementById("timelineTexto").innerText=texto;
+document.getElementById("timelineImg").src=imagen;
+
+document.getElementById("timelineModal").style.display="flex";
+
+}
+
+function cerrarTimelineModal(){
+document.getElementById("timelineModal").style.display="none";
+}
+
+function abrirCarta(num){
+
+const dias=
+Math.floor(
+(new Date()-inicio)/86400000
+);
+
+if(num===1){
+
+document.getElementById("cartaEspecial")
+.innerText=
+"Gracias por llegar a mi vida ❤️";
+
+}
+
+if(num===2){
+
+if(dias<30){
+
+document.getElementById("cartaEspecial")
+.innerText=
+"🔒 Se desbloquea a los 30 días.";
+
+return;
+
+}
+
+document.getElementById("cartaEspecial")
+.innerText=
+"❤️ Tienes unas chichotas bebé, y unas nalgotas, dame o solo las usas para sentarte?.🥺";
+
+}
+
+}
+
+function toggleDark(){
+document.body.classList.toggle('dark');
+}
 </script>
-
+<div id="timelineModal" class="timeline-modal">
+    <div class="timeline-modal-content">
+        <span class="close-modal" onclick="cerrarTimelineModal()">&times;</span>
+        <img id="timelineImg" src="">
+        <h3 id="timelineTitulo"></h3>
+        <p id="timelineTexto"></p>
+    </div>
+</div>
 </body>
 </html>
